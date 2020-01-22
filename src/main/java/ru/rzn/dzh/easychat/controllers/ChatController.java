@@ -20,7 +20,7 @@ public class ChatController {
     }
 
     @GetMapping("/chats")
-    public List getAllChats() {
+    public List<Chat> getAllChats() {
         return chatRepository.findAll();
     }
 
