@@ -2,35 +2,35 @@ package ru.rzn.dzh.easychat.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.rzn.dzh.easychat.exceptions.ChatNotFoundException;
 import ru.rzn.dzh.easychat.models.Chat;
-import ru.rzn.dzh.easychat.repositories.ChatRepository;
+import ru.rzn.dzh.easychat.services.ChatService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class ChatController {
 
-    private ChatRepository chatRepository;
+    private ChatService chatService;
 
     @Autowired
-    public ChatController(ChatRepository chatRepository) {
-        this.chatRepository = chatRepository;
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
     }
 
     @GetMapping("/chats")
     public List<Chat> getAllChats() {
-        return chatRepository.findAll();
+        return chatService.findAll();
     }
 
     @PostMapping("/chats")
     public Chat createChat(@Valid @RequestBody Chat chat) {
-        return chatRepository.save(chat);
+        return chatService.save(chat);
     }
 
     @GetMapping("/chats/{chatId}")
-    public Chat getChatById(@PathVariable(value = "chatId") Long chatId) throws ChatNotFoundException {
-        return chatRepository.findById(chatId).orElseThrow(() -> new ChatNotFoundException(chatId));
+    public Chat getChatById(@PathVariable(value = "chatId") Long chatId) {
+        return chatService.findById(chatId);
     }
 }
