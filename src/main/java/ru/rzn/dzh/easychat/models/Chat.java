@@ -24,7 +24,7 @@ public class Chat {
     @OneToMany(mappedBy="chat")
     @JsonIgnore
     private List<Message> messages;
-    
+
     public Chat() {
     }
 

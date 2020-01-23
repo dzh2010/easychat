@@ -24,7 +24,7 @@ public class ChatServiceImpl implements ChatService{
     }
 
     @Override
-    public Chat findById(long chatId) {
+    public Chat findById(Long chatId) {
         return chatRepository.findById(chatId)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Chat with id=%s is not found", chatId)));
     }
