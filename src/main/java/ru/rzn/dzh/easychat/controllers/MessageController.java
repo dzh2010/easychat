@@ -38,13 +38,13 @@ public class MessageController {
         return messageService.save(message);
     }
 
-    @GetMapping("/messages/{messageId}")
-    public Message getMessageById(@PathVariable(value = "messageId") Long messageId) {
-        return messageService.findById(messageId);
-    }
-
-    @DeleteMapping("/messages/{messageId}")
-    public void removeMessage(@PathVariable(value = "messageId") Long messageId) {
-        messageService.remove(messageId);
-    }
+//    @GetMapping("/messages/{messageId}")
+//    public Message getMessageById(@PathVariable(value = "messageId") Long messageId) {
+//        return messageService.findById(messageId);
+//    }
+//
+//    @DeleteMapping("/messages/{messageId}")
+//    public void removeMessage(@PathVariable(value = "messageId") Long messageId) {
+//        messageService.remove(messageId);
+//    }
 }
