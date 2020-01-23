@@ -10,8 +10,6 @@ POST /api/chats
 
 GET /api/chats
 
-GET /api/chats/(:chat_id)
-
 ### Сообщения
 
 POST /api/chats/(:chat_id)/messages

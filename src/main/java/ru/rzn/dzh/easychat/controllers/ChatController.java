@@ -29,8 +29,8 @@ public class ChatController {
         return chatService.save(chat);
     }
 
-    @GetMapping("/chats/{chatId}")
-    public Chat getChatById(@PathVariable(value = "chatId") Long chatId) {
-        return chatService.findById(chatId);
-    }
+//    @GetMapping("/chats/{chatId}")
+//    public Chat getChatById(@PathVariable(value = "chatId") Long chatId) {
+//        return chatService.findById(chatId);
+//    }
 }
